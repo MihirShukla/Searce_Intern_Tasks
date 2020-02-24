@@ -1,0 +1,68 @@
+<html>  
+   <head>
+      <style>
+         body {background-color:#9933ff;}
+         table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #000000;
+  text-align: center;
+  padding: 8px;
+}
+th
+{
+    background-color: #9933ff;
+    color: #ffffff;
+}
+tr:nth-child(even) {
+  background-color:#ddd;
+
+}
+tr:nth-child(odd) {
+  background-color: #ffffff;
+
+}
+h1
+{
+    color: #ffffff;
+}
+.container {
+  border-radius: 5px;
+  background-color: #000000;
+  padding: 20px;
+  width: 50%;
+  margin-left: 325px;
+  margin-top: 50px;
+}
+
+   </style>
+   </head>
+   <body>
+      <div class="container">
+      <h1 align="center">Existing Users</h1>  
+    <table border = 1>
+       <tr>
+          <th>User ID</th>
+          <th>Profile ID</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+       </tr>
+        {% for key, value in user.items(): %}
+              {%for x in value %}
+              <tr>
+                  <td> {{ key }} </td>
+                  <td>{{x["profile_id"]}}</td>
+                  <td>{{x["start_date"]}}</td>
+                  <td>{{x["end_date"]}}</td> 
+               </tr>
+              {% endfor %} 
+        {% endfor %}
+     </table>
+   </div>
+  </body>
+   </body>
+</html>
