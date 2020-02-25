@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="work.css"/>
+<script>
+   
+   function validateDate()
+   {
+      var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+      var start_date = document.getElementById("sd_user").value;
+      var end_date = document.getElementById("ed_user").value;
+      if(!(dateformat.test(start_date)))
+      {
+         alert("Start Date must be in DD-MM-YYYY format");
+      }
+      if(!(dateformat.test(end_date)))
+      {
+         alert("End Date must be in DD-MM-YYYY format");
+      }
+   }
+   </script>
+</head>
+<body>
+
+
+
+<div class="container">
+   <h1 align="center">Scheduling</h1>
+  <form name="myForm" action="http://localhost:5000/result" method="post">
+    <label for="fname">User ID</label>
+    <input type="text" id="user_id" name="user_id" placeholder="Enter your UserID" required>
+
+    <label for="lname">Profile</label>
+    <input type="text" id="profile_id" name="profile_id" placeholder="Enter your Profile" required>
+   
+    <label for="fname">Start Date</label>
+    <input type="text" id="sd_user" name="sd_user" placeholder="Enter Start Date in DD-MM-YYYY format" required onchange="return validateDate()">
+
+    <label for="lname">End Date</label>
+    <input type="text" id="ed_user" name="ed_user" placeholder="Enter End Date in DD-MM-YYYY format" required onchange="return validateDate()">
+
+    <input type="submit" value="Submit">
+  </form>
+  <form name="userForm" action="http://localhost:5000/user" method="post">
+   <input type="submit" id="exuser" value="Existing User">
+</form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>  
+   <head>
+    <link rel="stylesheet" href="works.css"/>    
+   </head>
+   <body>
+      <div class="container">
+      <h1 align="center">Existing Users</h1>  
+    <table border = 1>
+       <tr>
+          <th>User ID</th>
+          <th>Profile ID</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+       </tr>
+        {% for key, value in user.items(): %}
+              {%for x in value %}
+              <tr>
+                  <td> {{ key }} </td>
+                  <td>{{x["profile_id"]}}</td>
+                  <td>{{x["start_date"]}}</td>
+                  <td>{{x["end_date"]}}</td> 
+               </tr>
+              {% endfor %} 
+        {% endfor %}
+     </table>
+   </div>
+  </body>
+   </body>
+</html>
